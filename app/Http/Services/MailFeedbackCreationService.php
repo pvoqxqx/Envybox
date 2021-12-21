@@ -21,6 +21,6 @@ class MailFeedbackCreationService implements FeedbackCreationInterface
             'message' => $message,
         ];
 
-        Mail::to("denis.klevtsovs@gmail.com")->send(new FeedbackMail($details));
+        Mail::to(config('mail.mailers.smtp.username'))->send(new FeedbackMail($details));
     }
 }
